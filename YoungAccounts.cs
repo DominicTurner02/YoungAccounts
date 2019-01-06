@@ -43,9 +43,11 @@ namespace YoungAccounts
             {
                 return;
             }
-            RejectionReason = ESteamRejection.PLUGIN;
-            Logger.Log($"{cSteamID} has been kicked as their Account doesn't meet the requirement!", ConsoleColor.Red);
-            
+            else
+            {
+                RejectionReason = ESteamRejection.PLUGIN;
+                Logger.Log($"{cSteamID} has been kicked as their Account doesn't meet the requirement!", ConsoleColor.Red);
+            }
         }
         private static long CurrentUnix() { return (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds; }
     }
